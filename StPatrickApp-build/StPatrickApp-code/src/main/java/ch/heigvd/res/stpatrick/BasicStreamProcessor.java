@@ -24,10 +24,13 @@ class BasicStreamProcessor implements IStreamProcessor {
   public void process(Reader in, Writer out) throws IOException {
     BufferedReader br = new BufferedReader(in);
     BufferedWriter bw = new BufferedWriter(out);
-    int c = br.read();
-    while (c != -1) {
-      c = br.read();
+
+    int c ;
+
+    while ((c = br.read()) != -1) {
+      bw.write(c);
     }
+
     bw.flush();
   }
 
